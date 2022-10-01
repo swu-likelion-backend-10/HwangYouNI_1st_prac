@@ -20,7 +20,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
+} //hhhugh
 
 tasks.named('test') {
 	useJUnitPlatform()
