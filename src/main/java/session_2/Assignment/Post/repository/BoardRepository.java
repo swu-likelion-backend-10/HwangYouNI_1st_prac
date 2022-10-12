@@ -6,7 +6,12 @@ import session_2.Assignment.Post.domain.Board;
 
 import java.util.List;
 
-public interface BoardRepository extends JpaRepository<Board, Long> {
+
+
+
+public interface BoardRepository extends JpaRepository<Board,Long> {
     List<Board> findByTitleContaining(String keyword);
+
+
 }
 

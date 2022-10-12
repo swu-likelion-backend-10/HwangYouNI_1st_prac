@@ -1,15 +1,12 @@
 package session_2.Assignment.Post.domain;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import session_2.Assignment.Post.dto.BoardDto;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -20,30 +17,37 @@ public class Board extends BaseTimeEntity{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(length = 100, nullable = false)
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private String depart;
+
+    @Column(nullable = false)
+    private String age;
+
+    @Column(nullable = false)
+    private String introduction;
+
+    @Column(nullable = false)
     private String title;
 
-    @Column(columnDefinition = "Text", nullable = false)
+    @Column(nullable = false)
     private String contents;
 
-
     @Builder
-    public Board(Long id, String title, String contents){
-        this.id = id;
+    public Board(Long id, String name, String depart, String age,String introduction,String title, String contents){
+        this.id=id;
+        this.name=name;
+        this.depart=depart;
+        this.age=age;
+        this.introduction=introduction;
         this.title = title;
         this.contents = contents;
     }
-
-    @CreationTimestamp
-    private Timestamp createdAt;
-
-    @UpdateTimestamp
-    private Timestamp updatedAt;
-
 
     public void update(BoardDto boardDto){
         this.title = boardDto.getTitle();
         this.contents = boardDto.getContents();
     }
 }
-
